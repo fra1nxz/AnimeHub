@@ -25,7 +25,7 @@ const AnimeCard = ({ anime, clickAnime, toggleFavorites, isFavorite }: AnimeCard
                 e.stopPropagation(),
                 toggleFavorites(anime)
 
-            )}><FaHeart color={isFavorite ? "red" : ""} size={20} /> Лайк</button>
+            )}><FaHeart color={isFavorite ? "red" : ""} size={20} /> Лaйк</button>
         </article>
     );
 }
