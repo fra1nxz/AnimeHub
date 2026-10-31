@@ -1,16 +1,63 @@
-# React + Vite
+# AnimeHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AnimeHub — веб-приложение для просмотра и поиска аниме. Проект разработан с использованием React и TypeScript для практического изучения frontend-разработки.
 
-Currently, two official plugins are available:
+## Возможности
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Просмотр списка популярных аниме.
+- Поиск аниме по названию.
+- Фильтрация по категориям: популярные, новые и классические.
+- Просмотр подробной информации об аниме.
+- Добавление и удаление аниме из избранного.
+- Сохранение избранного в LocalStorage.
+- Адаптивный интерфейс для разных устройств.
 
-## React Compiler
+## Технологии
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- TypeScript
+- Vite
+- React Router
+- CSS
+- REST API
+- LocalStorage
 
-## Expanding the ESLint configuration
+## API
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Для получения информации об аниме используется [Tenrai API](https://api.tenrai.org/).
+
+## Запуск проекта
+
+Клонируйте репозиторий:
+
+```bash
+git clone https://github.com/fra1nxz/AnimeHub.git
+```
+
+Перейдите в папку проекта:
+
+```bash
+cd AnimeHub
+```
+
+Установите зависимости:
+
+```bash
+npm install
+```
+
+Запустите проект:
+
+```bash
+npm run dev
+```
+
+После запуска откройте адрес, указанный в терминале Vite.
+
+## Статус проекта
+
+Проект находится в разработке. Новые функции и улучшения добавляются постепенно.
+
+---
+
+Автор: [fra1nxz](https://github.com/fra1nxz)
