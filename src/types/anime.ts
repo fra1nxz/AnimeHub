@@ -27,3 +27,10 @@ export type AnimeApiResponse = {
 export type GetAnimeApiResponse = {
     data: Anime;
 }
+
+export type AnimeOutletContext = [
+    string,
+    (filter: string) => void,
+    Anime[],
+    (anime: Anime) => void
+];

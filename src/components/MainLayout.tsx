@@ -17,21 +17,29 @@ const MainLayout = () => {
             return []
         }
 
-        return JSON.parse(savedFavorites)
+        try {
+    return JSON.parse(savedFavorites) as Anime[];
+} catch {
+    return [];
+}
     });
 
 
 
     const toggleFavorites = (anime: Anime) => {
-        const isFavorite = favorites.some((item) => item.mal_id === anime.mal_id);
-        if (isFavorite) {
-            setFavorites((prev) =>
-                prev.filter((item) => item.mal_id !== anime.mal_id)
+        setFavorites((prev) => {
+            const isFavorite = prev.some(
+                (item) => item.mal_id === anime.mal_id
             );
-        } else {
-            setFavorites((prev) => [...prev, anime])
 
-        }
+            if (isFavorite) {
+                return prev.filter(
+                    (item) => item.mal_id !== anime.mal_id
+                );
+            }
+
+            return [...prev, anime];
+        });
 
     }
 

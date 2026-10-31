@@ -1,5 +1,5 @@
 import { useNavigate, useOutletContext } from "react-router-dom";
-import type { Anime } from "../types/anime";
+import type { Anime, AnimeOutletContext } from "../types/anime";
 import AnimeCard from "./AnimeCard";
 
 
@@ -9,7 +9,7 @@ const Favorites = () => {
     let navigate = useNavigate()
     const [, , favorites, toggleFavorites] =
         useOutletContext<
-            [string, (filter: string) => void, Anime[], (anime: Anime) => void]
+AnimeOutletContext
         >();
 
     const handleClick = (id: number) => {

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import type { Anime } from "../types/anime";
+import type { Anime, AnimeOutletContext } from "../types/anime";
 import { getTopAnime } from "../api/anime";
 import AnimeCard from "./AnimeCard";
 import { useOutletContext, useNavigate } from "react-router-dom";
@@ -12,7 +12,7 @@ const AnimeList = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [search, setSearch] = useState<string>("");
-    const [activeFilter, setActiveFilter, favorites, toggleFavorites] = useOutletContext<[string, (filter: string) => void, Anime[], (anime: Anime) => void]>();
+    const [activeFilter, setActiveFilter, favorites, toggleFavorites] = useOutletContext<AnimeOutletContext>();
 
 
     const filteredAnime = anime.filter((item) => {
