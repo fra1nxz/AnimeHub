@@ -13,6 +13,8 @@ const AnimeDetails = () => {
 
 
     useEffect(() => {
+        const controller = new AbortController();
+
         const load = async () => {
             setLoading(true);
             setError(null);
@@ -22,20 +24,28 @@ const AnimeDetails = () => {
                     setError("ID аниме не указан");
                     return;
                 }
-                const data = await getAnime(params.id);
+                const data = await getAnime(params.id, controller.signal);
                 setAnime(data);
             } catch (err) {
+                if (err instanceof Error && err.name === "AbortError") {
+                    return;
+                }
+
                 setError(
                     err instanceof Error
                         ? err.message
                         : "Ошибка загрузки"
                 );
             } finally {
-                setLoading(false);
+                if (!controller.signal.aborted) {
+                    setLoading(false);
+                }
             }
         }
 
         load()
+
+        return () => controller.abort();
     }, [params.id])
 
 
@@ -81,15 +91,15 @@ const AnimeDetails = () => {
                             {expanded ? "Свернуть" : "Читать далее"}
                         </button>
                     )}
+                    <Link to='/'>
+                        <button
+                            type="button"
+                            className="anime-details__btn"
 
-                    <button
-                        type="button"
-                        className="anime-details__btn"
-
-                    >
-                        <Link to='/'>go back</Link>
-                    </button>
-
+                        >
+                            go back
+                        </button>
+                    </Link>
 
                 </div>
 

@@ -16,9 +16,10 @@ export const getTopAnime = async () => {
 };
 
 
-export const getAnime = async (id: string) => {
+export const getAnime = async (id: string, signal?: AbortSignal) => {
     const response = await fetch(
-        `https://api.tenrai.org/v1/anime/${id}`
+        `https://api.tenrai.org/v1/anime/${id}`,
+        {signal}
     )
 
     if (!response.ok) {

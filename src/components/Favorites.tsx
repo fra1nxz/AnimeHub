@@ -9,7 +9,7 @@ const Favorites = () => {
     let navigate = useNavigate()
     const [, , favorites, toggleFavorites] =
         useOutletContext<
-AnimeOutletContext
+            AnimeOutletContext
         >();
 
     const handleClick = (id: number) => {

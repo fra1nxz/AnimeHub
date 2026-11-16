@@ -18,10 +18,10 @@ const MainLayout = () => {
         }
 
         try {
-    return JSON.parse(savedFavorites) as Anime[];
-} catch {
-    return [];
-}
+            return JSON.parse(savedFavorites) as Anime[];
+        } catch {
+            return [];
+        }
     });
 
 
