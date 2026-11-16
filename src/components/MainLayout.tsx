@@ -11,13 +11,11 @@ const MainLayout = () => {
 
     const [activeFilter, setActiveFilter] = useState<string>("all");
     const [favorites, setFavorites] = useState<Anime[]>(() => {
-        const savedFavorites = localStorage.getItem("favorites");
-
-        if (savedFavorites === null) {
-            return []
-        }
-
         try {
+            const savedFavorites = localStorage.getItem("favorites");
+            if (savedFavorites === null) {
+                return []
+            }
             return JSON.parse(savedFavorites) as Anime[];
         } catch {
             return [];
@@ -44,7 +42,13 @@ const MainLayout = () => {
     }
 
     useEffect(() => {
+        try {
         localStorage.setItem("favorites", JSON.stringify(favorites))
+            
+        } catch (error) {
+            console.log(error);
+            
+        }
     }, [favorites])
 
 

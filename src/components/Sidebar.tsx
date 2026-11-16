@@ -18,7 +18,11 @@ const Sidebar = ({ filter, setFilter }: { filter: string; setFilter: (filter: st
         <nav className="sidebar">
             <ul className="sidebar-list">
                 {genresAnime.map((item) => (
-                    <li onClick={() => setFilter(item.filter)} key={item.name} className="sidebar-item">{item.name}</li>
+                    <li key={item.name} className="sidebar-item">
+                        <button type="button" onClick={() => setFilter(item.filter)}>
+                            {item.name}
+                        </button>
+                    </li>
                 ))}
             </ul>
         </nav>
